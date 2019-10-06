@@ -133,10 +133,15 @@ function updateChart(count) {
 		yValue2 = rL3; //Math.round((deltaY2)*100)/100;
 
 	// pushing the new values
+	if (dataPoints1.length > 100)
+		dataPoints1.shift();
 	dataPoints1.push({
 		x: time.getTime(),
 		y: yValue1
 	});
+	
+	if (dataPoints2.length > 100)
+		dataPoints2.shift();
 	dataPoints2.push({
 		x: time.getTime(),
 		y: yValue2
