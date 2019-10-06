@@ -114,6 +114,7 @@ nSamplesInWindow = 100;
 
 var nSnoozes = 0;
 
+
 function updateChart(count) {
 	count = count || 1;
 	nSamples = 100;
@@ -244,6 +245,18 @@ function accelerometerUpdate(event) {
 <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
 <script src="canvasjs.min.js"></script>
 
+<script>
+    var xhttp = new XMLHttpRequest();
+    // xhttp.onreadystatechange = function() {
+    //   if (this.readyState == 4 && this.status == 200) {
+    //     document.getElementById("demo").innerHTML = this.responseText;
+    //   }
+    // };
+    xhttp.open("GET", "10.64.6.152", true);
+    xhttp.send();
+	
+</script>
+	
 </body>
 </html>
 
