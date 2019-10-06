@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CodePen - HTML5 Accelerometer (JS window.DeviceMotionEvent API)</title>
+<title>Accelerometer</title>
 <style>
     body {
   text-align: center;
@@ -72,18 +72,18 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	data: [{ 
 		type: "line",
 		xValueType: "dateTime",
-		yValueFormatString: "$####.00",
+		yValueFormatString: "####.####",
 		xValueFormatString: "hh:mm:ss TT",
 		showInLegend: true,
-		name: "Company A",
+		name: "V1",
 		dataPoints: dataPoints1
 		},
 		{				
 			type: "line",
 			xValueType: "dateTime",
-			yValueFormatString: "$####.00",
+			yValueFormatString: "####.####",
 			showInLegend: true,
-			name: "Company B" ,
+			name: "V2" ,
 			dataPoints: dataPoints2
 	}]
 });
@@ -116,20 +116,21 @@ function updateChart(count) {
 	for (var i = 0; i < count; i++) {
 		time.setTime(time.getTime()+ updateInterval);
 		
-	    var rX = document.querySelector("#x").value;
-	    var rY = document.querySelector("#y").value;
-	    var rZ = document.querySelector("#z").value;
+	    var rX = document.querySelector("#x").value/100;
+	    var rY = document.querySelector("#y").value/100;
+	    var rZ = document.querySelector("#z").value/100;
 		
 		var rL2 = Math.sqrt(rX*rX + rY*rY);
 
 		var rL3 = Math.sqrt(rX*rX + rY*rY + rZ*rZ);
 				
-		deltaY1 = rL2 ;
-		deltaY2 = rL3 - 1;
+		deltaY1 = rL2;
+		deltaY2 = rL3;
 
 	// adding random value and rounding it to two digits. 
-	yValue1 = Math.round((yValue1 + deltaY1)*100)/100;
-	yValue2 = Math.round((yValue2 + deltaY2)*100)/100;
+		yValue1 = rL2; ///Math.round((deltaY1)*100)/100;
+		
+		yValue2 = rL3; //Math.round((deltaY2)*100)/100;
 
 	// pushing the new values
 	dataPoints1.push({
@@ -143,8 +144,8 @@ function updateChart(count) {
 	}
 
 	// updating legend text with  updated with y Value 
-	chart.options.data[0].legendText = " Company A  $" + yValue1;
-	chart.options.data[1].legendText = " Company B  $" + yValue2; 
+	chart.options.data[0].legendText = " V1" + yValue1;
+	chart.options.data[1].legendText = " V2" + yValue2; 
 	chart.render();
 }
 // generates first set of dataPoints 
