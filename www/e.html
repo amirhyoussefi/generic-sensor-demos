@@ -112,7 +112,22 @@ time.setMilliseconds(00);
 
 function updateChart(count) {
 	count = count || 1;
+	nSamples = 100;
+	nTriggers = 10;
+	bL = 0.2;
+	bH = 0.7;
+	
 	var deltaY1, deltaY2;
+	
+    var tCnt = 0;
+	for (var i = 0; i < dataPoints1.length; i++) {
+		//console.log(dataPoints1[i].y);
+		if (dataPoints1[i].y > bL && dataPoints1[i].y < bH )
+			tCnt = tCnt + 1;
+	}
+	if (tCnt > nTriggers)
+		alert(tCnt);
+				
 	for (var i = 0; i < count; i++) {
 		time.setTime(time.getTime()+ updateInterval);
 		
@@ -133,14 +148,14 @@ function updateChart(count) {
 		yValue2 = rL3; //Math.round((deltaY2)*100)/100;
 
 	// pushing the new values
-	if (dataPoints1.length > 100)
+	if (dataPoints1.length > nSamples)
 		dataPoints1.shift();
 	dataPoints1.push({
 		x: time.getTime(),
 		y: yValue1
 	});
 	
-	if (dataPoints2.length > 100)
+	if (dataPoints2.length > nSamples)
 		dataPoints2.shift();
 	dataPoints2.push({
 		x: time.getTime(),
