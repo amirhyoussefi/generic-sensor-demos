@@ -131,8 +131,8 @@ function updateChart(count) {
 	}
 	
 	if (tCnt > nTriggers && nSnoozes == 0) {
-		alert(tCnt);
 		nSnoozes = nSamplesInWindow+1;
+		alert(tCnt + '-' + nSnoozes);		
 	}
 	
 	if (nSnoozes > 0 )
