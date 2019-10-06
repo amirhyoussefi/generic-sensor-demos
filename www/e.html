@@ -138,11 +138,11 @@ function updateChart(count) {
 	chart.render();
 }
 
-function updateChart2() {
+function updateChart2(y1,y2) {
 	var deltaY1, deltaY2;
 	for (var i = 0; i < 3; i++) {
-		deltaY1 = .5 + Math.random() *(-.5-.5);
-		deltaY2 = .5 + Math.random() *(-.5-.5);
+		deltaY1 = .5 + y1;
+		deltaY2 = .5 + y2;
 
 	// adding random value and rounding it to two digits. 
 	yValue1 = Math.round((yValue1 + deltaY1)*100)/100;
@@ -207,7 +207,7 @@ function accelerometerUpdate(event) {
   document.querySelector("#y").value = aY;
   document.querySelector("#z").value = aZ;
 
-  updateChart2();
+  updateChart2(aX,aY);
   
   // ix aY is negative, switch rotation
   if (aY < 0) {
