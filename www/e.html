@@ -117,9 +117,9 @@ var nSnoozes = 0;
 function updateChart(count) {
 	count = count || 1;
 	nSamples = 100;
-	nTriggers = 20;
+	nTriggers = 30;
 	bL = 0.3;
-	bH = 0.5;
+	bH = 0.4;
 	
 	var deltaY1, deltaY2;
 	
@@ -174,8 +174,8 @@ function updateChart(count) {
 	}
 
 	// updating legend text with  updated with y Value 
-	chart.options.data[0].legendText = " V1" + yValue1;
-	chart.options.data[1].legendText = " V2" + yValue2; 
+	chart.options.data[0].legendText = " A" + yValue1;
+	chart.options.data[1].legendText = " B" + yValue2; 
 	chart.render();
 }
 // generates first set of dataPoints 
