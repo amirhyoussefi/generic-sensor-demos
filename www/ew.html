@@ -115,15 +115,8 @@ function updateChart(count) {
 	var deltaY1, deltaY2;
 	for (var i = 0; i < count; i++) {
 		time.setTime(time.getTime()+ updateInterval);
-		
-	    var rX = document.querySelector("#x").value;
-	    var rY = document.querySelector("#y").value;
-	    var rZ = document.querySelector("#z").value;
-		
-		var rL = Math.sqrt(rX*rX + rY*rY + rZ*rZ);
-		
-		deltaY1 = rL;
-		deltaY2 = .5 + Math.random() *(-.5-.5);
+		deltaY1 = .5 + document.querySelector("#x").value  *(-.5-.5);
+		deltaY2 = .5 + document.querySelector("#y").value  *(-.5-.5);
 
 	// adding random value and rounding it to two digits. 
 	yValue1 = Math.round((yValue1 + deltaY1)*100)/100;
@@ -202,4 +195,3 @@ function accelerometerUpdate(event) {
 
 </body>
 </html>
-
