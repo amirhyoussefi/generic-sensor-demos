@@ -1,0 +1,69 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>5G Earthquake Alert</title>
+<style>
+    body {
+  text-align: center;
+}
+
+#block {
+	width: 150px;
+	height: 150px;
+	border: 4px solid blue;
+	border-top-color: red;
+	margin: 50px auto;
+	font-size: 40px;
+}
+
+#acc {
+	font-weight: bold;
+}
+
+#acc.yes {
+	color: green;
+}
+#acc.no {
+	color: red;
+}
+
+  </style>
+
+  
+  
+<script>
+window.onload = function () {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "http://10.64.6.152", true);
+    xhttp.send();
+}
+</script>
+
+</head>
+<body translate="no">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h1>5G Earthquake Alert</h1>
+<br><br><br>
+<section>
+Are Sensors Healthy? <span id="acc"></span><br>
+alpha X: <input type="text" readonly id="x" value="" /><br>
+alpha Y: <input type="text" readonly id="y" value="" /><br>
+alpha Z: <input type="text" readonly id="z" value="" /><br>
+</section>
+<div id="block">↑</div>
+
+<div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+
+<script>
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "http://10.64.6.152", true);
+    xhttp.send();
+	
+</script>
+	
+</body>
+</html>
+
