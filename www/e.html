@@ -115,8 +115,8 @@ function updateChart(count) {
 	var deltaY1, deltaY2;
 	for (var i = 0; i < count; i++) {
 		time.setTime(time.getTime()+ updateInterval);
-		deltaY1 = .5 + Math.random() *(-.5-.5);
-		deltaY2 = .5 + Math.random() *(-.5-.5);
+		deltaY1 = .5 + document.querySelector("#x").value  *(-.5-.5);
+		deltaY2 = .5 + document.querySelector("#y").value  *(-.5-.5);
 
 	// adding random value and rounding it to two digits. 
 	yValue1 = Math.round((yValue1 + deltaY1)*100)/100;
