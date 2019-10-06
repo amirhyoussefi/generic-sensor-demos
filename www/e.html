@@ -120,10 +120,12 @@ function updateChart(count) {
 	    var rY = document.querySelector("#y").value;
 	    var rZ = document.querySelector("#z").value;
 		
-		var rL = Math.sqrt(rX*rX + rY*rY + rZ*rZ);
-		
-		deltaY1 = rL - 1;
-		deltaY2 = .5 + Math.random() *(-.5-.5);
+		var rL2 = Math.sqrt(rX*rX + rY*rY);
+
+		var rL3 = Math.sqrt(rX*rX + rY*rY + rZ*rZ);
+				
+		deltaY1 = rL2 ;
+		deltaY2 = rL3;
 
 	// adding random value and rounding it to two digits. 
 	yValue1 = Math.round((yValue1 + deltaY1)*100)/100;
