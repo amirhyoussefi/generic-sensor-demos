@@ -75,7 +75,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		yValueFormatString: "####.####",
 		xValueFormatString: "hh:mm:ss TT",
 		showInLegend: true,
-		name: "V1",
+		name: "A",
 		dataPoints: dataPoints1
 		},
 		{				
@@ -83,7 +83,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 			xValueType: "dateTime",
 			yValueFormatString: "####.####",
 			showInLegend: true,
-			name: "V2" ,
+			name: "B" ,
 			dataPoints: dataPoints2
 	}]
 });
@@ -114,12 +114,13 @@ nSamplesInWindow = 100;
 
 var nSnoozes = 0;
 
+
 function updateChart(count) {
 	count = count || 1;
 	nSamples = 100;
-	nTriggers = 3;
-	bL = 0.2;
-	bH = 0.7;
+	nTriggers = 15;
+	bL = 0.3;
+	bH = 0.5;
 	
 	var deltaY1, deltaY2;
 	
@@ -130,13 +131,24 @@ function updateChart(count) {
 			tCnt = tCnt + 1;
 	}
 	
-	// if (tCnt > nTriggers && nSnoozes == 0) {
-	// 	alert(tCnt + '-' + nSnoozes);
-	// 	nSnoozes = nSamplesInWindow+1;
-	// }
-	//
-	// if (nSnoozes > 0 )
-	// 	nSnoozes = nSnoozes - 1;
+	if (tCnt > nTriggers && nSnoozes == 0) {
+		nSnoozes = nSamplesInWindow+1;
+	
+	    var xhttp = new XMLHttpRequest();
+	    // xhttp.onreadystatechange = function() {
+	    //   if (this.readyState == 4 && this.status == 200) {
+	    //     document.getElementById("demo").innerHTML = this.responseText;
+	    //   }
+	    // };
+	    xhttp.open("GET", "https://10.64.6.152", true);
+	    xhttp.send();
+		
+		alert("Potential Earthquake Reported for Analysis");				
+		
+	}
+	
+	if (nSnoozes > 0 )
+		nSnoozes = nSnoozes - 1;
 				
 	for (var i = 0; i < count; i++) {
 		time.setTime(time.getTime()+ updateInterval);
@@ -174,8 +186,8 @@ function updateChart(count) {
 	}
 
 	// updating legend text with  updated with y Value 
-	chart.options.data[0].legendText = " V1" + yValue1;
-	chart.options.data[1].legendText = " V2" + yValue2; 
+	chart.options.data[0].legendText = " A" + yValue1;
+	chart.options.data[1].legendText = " B" + yValue2; 
 	chart.render();
 }
 // generates first set of dataPoints 
@@ -187,7 +199,6 @@ setInterval(function(){updateChart()}, updateInterval);
 
 </head>
 <body translate="no">
-
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <h1>5G Earthquake Alert</h1>
 <br><br><br>
@@ -235,6 +246,13 @@ function accelerometerUpdate(event) {
 <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
 <script src="canvasjs.min.js"></script>
 
+<script>
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "http://10.64.6.152", true);
+    xhttp.send();
+	
+</script>
+	
 </body>
 </html>
 

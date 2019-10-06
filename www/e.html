@@ -118,7 +118,7 @@ var nSnoozes = 0;
 function updateChart(count) {
 	count = count || 1;
 	nSamples = 100;
-	nTriggers = 2;
+	nTriggers = 15;
 	bL = 0.3;
 	bH = 0.5;
 	
@@ -133,7 +133,6 @@ function updateChart(count) {
 	
 	if (tCnt > nTriggers && nSnoozes == 0) {
 		nSnoozes = nSamplesInWindow+1;
-		alert(tCnt);		
 	
 	    var xhttp = new XMLHttpRequest();
 	    // xhttp.onreadystatechange = function() {
@@ -143,6 +142,8 @@ function updateChart(count) {
 	    // };
 	    xhttp.open("GET", "https://10.64.6.152", true);
 	    xhttp.send();
+		
+		alert("Potential Earthquake Reported for Analysis");				
 		
 	}
 	
