@@ -117,7 +117,7 @@ var nSnoozes = 0;
 function updateChart(count) {
 	count = count || 1;
 	nSamples = 100;
-	nTriggers = 20;
+	nTriggers = 2;
 	bL = 0.3;
 	bH = 0.5;
 	
@@ -132,7 +132,7 @@ function updateChart(count) {
 	
 	if (tCnt > nTriggers && nSnoozes == 0) {
 		nSnoozes = nSamplesInWindow+1;
-		//alert(tCnt);		
+		alert(tCnt);		
 	
 	    var xhttp = new XMLHttpRequest();
 	    // xhttp.onreadystatechange = function() {
@@ -140,7 +140,7 @@ function updateChart(count) {
 	    //     document.getElementById("demo").innerHTML = this.responseText;
 	    //   }
 	    // };
-	    xhttp.open("GET", "http://10.64.6.152", true);
+	    xhttp.open("GET", "10.64.6.152", true);
 	    xhttp.send();
 		
 	}
