@@ -140,13 +140,13 @@ function updateChart(count) {
 
 function updateChart2(y1,y2) {
 	var deltaY1, deltaY2;
-	for (var i = 0; i < 3; i++) {
+	for (var i = 0; i < 100; i++) {
 		deltaY1 = .5 + y1;
 		deltaY2 = .5 + y2;
 
 	// adding random value and rounding it to two digits. 
-	yValue1 = Math.round((yValue1 + deltaY1)*100)/100;
-	yValue2 = Math.round((yValue2 + deltaY2)*100)/100;
+	yValue1 = Math.round((y1 + deltaY1)*100)/100;
+	yValue2 = Math.round((y2 + deltaY2)*100)/100;
 
 	// pushing the new values
 	dataPoints1.push({
