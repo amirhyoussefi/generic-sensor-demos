@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Accelerometer</title>
+<title>5G Tremor Detection Network</title>
 <style>
     body {
   text-align: center;
@@ -50,13 +50,13 @@ var dataPoints2 = [];
 var chart = new CanvasJS.Chart("chartContainer", {
 	zoomEnabled: true,
 	title: {
-		text: "Share Value of Two Companies"
+		text: "Detection Variables"
 	},
 	axisX: {
-		title: "chart updates every 3 secs"
+		title: "Time"
 	},
 	axisY:{
-		prefix: "$",
+		prefix: "G",
 		includeZero: false
 	}, 
 	toolTip: {
@@ -163,9 +163,9 @@ setInterval(function(){updateChart()}, updateInterval);
 </head>
 <body translate="no">
 
-<h1>HTML5 Accelerometer</h1>
+<h1>5G Tremor Detection Network</h1>
 <section>
-Accelerometer detected? <span id="acc"></span><br>
+Are Sensors Healthy? <span id="acc"></span><br>
 alpha X: <input type="text" readonly id="x" value="" /><br>
 alpha Y: <input type="text" readonly id="y" value="" /><br>
 alpha Z: <input type="text" readonly id="z" value="" /><br>
