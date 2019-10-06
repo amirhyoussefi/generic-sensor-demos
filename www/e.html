@@ -110,12 +110,13 @@ time.setMinutes(30);
 time.setSeconds(00);
 time.setMilliseconds(00);
 
-function updateChart(y1,y2) {
+function updateChart(count) {
+	count = count || 1;
 	var deltaY1, deltaY2;
 	for (var i = 0; i < count; i++) {
 		time.setTime(time.getTime()+ updateInterval);
-		deltaY1 = .5 + y1 *(-.5-.5);
-		deltaY2 = .5 + y2 *(-.5-.5);
+		deltaY1 = .5 + Math.random() *(-.5-.5);
+		deltaY2 = .5 + Math.random() *(-.5-.5);
 
 	// adding random value and rounding it to two digits. 
 	yValue1 = Math.round((yValue1 + deltaY1)*100)/100;
@@ -137,41 +138,9 @@ function updateChart(y1,y2) {
 	chart.options.data[1].legendText = " Company B  $" + yValue2; 
 	chart.render();
 }
-
-function updateChart2() {
-	var deltaY1, deltaY2;
-	
-    var y1 = document.querySelector("#x").value;
-    var y2 = document.querySelector("#y").value;
-	
-	for (var i = 0; i < 3; i++) {
-		deltaY1 = .5 + y1 *(-.5-.5);
-		deltaY2 = .5 + y2 *(-.5-.5);
-
-	// adding random value and rounding it to two digits. 
-	yValue1 = Math.round((yValue1 + deltaY1)*100)/100;
-	yValue2 = Math.round((yValue2 + deltaY2)*100)/100;
-
-	// pushing the new values
-	dataPoints1.push({
-		x: time.getTime(),
-		y: yValue1
-	});
-	dataPoints2.push({
-		x: time.getTime(),
-		y: yValue2
-	});
-	}
-
-	// updating legend text with  updated with y Value 
-	chart.options.data[0].legendText = " Company A  $" + yValue1;
-	chart.options.data[1].legendText = " Company B  $" + yValue2; 
-	chart.render();
-}
-
 // generates first set of dataPoints 
 updateChart(100);	
-//setInterval(function(){updateChart()}, updateInterval);
+setInterval(function(){updateChart()}, updateInterval);
 
 }
 </script>
@@ -210,13 +179,12 @@ function accelerometerUpdate(event) {
   document.querySelector("#x").value = aX;
   document.querySelector("#y").value = aY;
   document.querySelector("#z").value = aZ;
-  
+
   // ix aY is negative, switch rotation
   if (aY < 0) {
     aX = -aX - 180;
   }
   document.querySelector("#block").style.transform = "rotate(" + aX + "deg)";
-
 
 }
       //# sourceURL=pen.js
@@ -224,7 +192,6 @@ function accelerometerUpdate(event) {
 
 <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
 <script src="canvasjs.min.js"></script>
-
 
 </body>
 </html>
