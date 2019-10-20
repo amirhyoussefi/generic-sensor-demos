@@ -1,7 +1,24 @@
 <html>
+ <head>
+  <style>
+   input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+  </style>
+ </head>
 <body>
 <form>
- <input id="myFileInput" type="file" accept="image/*;capture=camera">
+<label for="file-upload" class="custom-file-upload">
+    <i class="fa fa-cloud-upload"></i> Custom Upload
+</label>
+<input id="file-upload" type="file" accept="image/*;capture=camera"/>
+ 
 </form>
 </body>
 </html>
