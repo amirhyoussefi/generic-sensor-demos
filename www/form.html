@@ -13,6 +13,14 @@
     cursor: pointer;
     font-size:5vw;
 }
+.custom-submit-button{
+    border: 1px solid #000;
+    border-radius: 2vw;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size:5vw;
+}   
   </style>
  </head>
 <body>
@@ -26,11 +34,14 @@
  <input type="text" name="url" value="Muse" style="font-size:5vw;"><br><br>
  <p style="font-size:5vw;"> Photo Proof: </p> 
  <label for="file-upload" class="custom-file-upload">
-    <i class="fa fa-cloud-upload"></i> Upload Photo
+    Upload Photo
  </label>
  <input id="file-upload" type="file" accept="image/*;capture=camera"/>
  <br><br>
- <input type="submit" value="Submit">  
+ <label for="submit-button" class="custom-submit-button">
+    Submit
+ </label> 
+ <input id="submit-button" type="submit" value="Submit">  
 </form>
 </body>
 </html>
